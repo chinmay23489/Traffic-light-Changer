@@ -1,39 +1,32 @@
 #include <iostream>
-// #include <thread>
-#include <chrono>
-
 using namespace std;
 
-#define SIZE 10
-template <class X>
+
 class queue
 {
 private:
-    X *arr;
+    int *arr;
     int rear;
     int front;
     int cap;
-    X b;
 
 public:
     queue(int size = SIZE);
     void enqueue(X);
-    X dequeue();
-    X Front();
+    void  dequeue();
+    int  Front();
     bool empty();
     bool full();
     void display();
 };
-template <class X>
-queue<X>::queue(int size)
+queue(int size)
 {
     arr = new X[size];
     cap = size;
     rear = -1;
     front = -1;
 }
-template <class X>
-void queue<X>::enqueue(X x)
+void enqueue(string x)
 {
     if (full())
     {
@@ -51,8 +44,7 @@ void queue<X>::enqueue(X x)
         arr[rear] = x;
     }
 }
-template <class X>
-X queue<X>::dequeue()
+void dequeue()
 {
     if (empty())
     {
@@ -72,32 +64,28 @@ X queue<X>::dequeue()
     }
     return b;
 }
-template <class X>
-X queue<X>::Front()
+int Front()
 {
     if (!empty())
         return arr[rear];
     else
         cout << "queue is empty\n";
 }
-template <class X>
-bool queue<X>::empty()
+bool empty()
 {
     if (front == -1 && rear == -1)
         return true;
     else
         return false;
 }
-template <class X>
-bool queue<X>::full()
+bool full()
 {
     if ((rear + 1) % cap == front)
         return true;
     else
         return false;
 }
-template <class X>
-void queue<X>::display()
+void display()
 {
     if (empty())
     {
@@ -134,7 +122,7 @@ int main()
         {
             cout << m << "  " << j << " seconds are remaining!!\a\n"
                  << endl;
-            // this_thread::sleep_for(chrono::seconds(1));
+            
         }
         i++;
     }
