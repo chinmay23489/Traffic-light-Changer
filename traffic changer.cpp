@@ -104,7 +104,9 @@ void display()
 
 int main()
 {
-    queue<string> k;
+    
+    // queue<string> k;
+    queue k;
     k.enqueue("\nSTOP::RED LIGHT ON!!\n");
     k.enqueue("\nWAIT::YELLOW LIGHT ON!!\n");
     k.enqueue("\nGO ::GREEN LIGHT ON!!\n");
